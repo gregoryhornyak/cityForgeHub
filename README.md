@@ -1,7 +1,11 @@
 # cityForgeHub
+
 community based city building project
 
+
 ## The Idea
+
+The aim is to build a city like Budapest.
 
 ### Assets
 
