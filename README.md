@@ -19,9 +19,9 @@ First it will be a map editor, then will evolve into a (city) simulation, afterw
 
 ### 2D world:
 
-[ ] The Map
-[ ] The Simulation
-[ ] The Game
+[ ] The Map \
+[ ] The Simulation \
+[ ] The Game 
 
 ### 3D world:
 
