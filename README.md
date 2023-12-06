@@ -5,7 +5,7 @@ community based city building project
 
 ## The Idea
 
-The aim is to build a city like Budapest.
+The aim is to build a city and sorrounding regions, based on Budapest and Pest county, Hungary.
 
 ### Assets
 
