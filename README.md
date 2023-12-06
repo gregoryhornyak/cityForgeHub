@@ -17,7 +17,8 @@ The application itself, can be considered as a game, and will develop into a gam
   1. Building the terrain of the city
   2. Adding districts and parks
   3. Adding main roads
-  4. h
+  4. Creating neighbourhoods
+  5. Adding famous sites
 
 ## The Editor
 
