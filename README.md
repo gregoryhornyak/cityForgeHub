@@ -11,6 +11,12 @@ The aim is to build a city and sorrounding regions, based on Budapest and Pest c
 All the assets are nodes, where each node connects to its parent node, which it is build on. For example a street lamp is on the road, which is in the neighbourhood. 
 All the assets are JSON files, listing all the properties of each asset. Templates will be provided for creators.
 
+Each asset will have:
+- a name
+- an ID
+- vertices with 3 dimensions
+- colour or texture
+
 ## The Hub
 
 The application itself, can be considered as a game, and will develop into a game.
