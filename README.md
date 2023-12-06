@@ -1,7 +1,6 @@
 # cityForgeHub
 
-community based city building project
-
+*community based city building project*
 
 ## The Idea
 
@@ -15,6 +14,8 @@ All the assets are JSON files, listing all the properties of each asset. Templat
 ## The Hub
 
 The application itself, can be considered as a game, and will develop into a game.
+First it will be a map, then will evolve into a (city) simulation, afterwards into a top-down game.
+2D to 3D transformation is planned.
 
 ### Stages:
 
