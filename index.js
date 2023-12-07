@@ -1,7 +1,4 @@
-import earth from "./World_01/surface/earth.json" assert {type: "json"};
-import buda from "./World_01/surface/buda.json" assert {type: "json"};
-import duna from "./World_01/surface/duna.json" assert {type: "json"};
-
+import json_files from "./all_jsons.json" assert {type:"json"}
 // dark mode: background is black
 // and grid is white
 
@@ -33,10 +30,10 @@ function draw() {
   const canvas = document.getElementById("canvas");
   if (canvas.getContext) {
       const ctx = canvas.getContext("2d");
-      render_asset(ctx,earth)
-      render_asset(ctx,buda)
-      render_asset(ctx,duna)
-
+      for (const [key,value] of Object.entries(json_files)) {
+        render_asset(ctx,value)
+      }
+    
       for (var i=0; i<40; i++) { // 100m grids
         ctx.fillStyle = "rgba(0, 0, 0,0.1)"//"#808080";
         ctx.fillRect(i*100,0,2,4000)
