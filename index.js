@@ -1,72 +1,41 @@
-import earth from "./earth.json" assert {type: "json"};
-import buda from "./buda.json" assert {type: "json"};
-import duna from "./duna.json" assert {type: "json"};
+import earth from "./World_01/surface/earth.json" assert {type: "json"};
+import buda from "./World_01/surface/buda.json" assert {type: "json"};
+import duna from "./World_01/surface/duna.json" assert {type: "json"};
 
 // dark mode: background is black
 // and grid is white
+
+function render_asset(ctx,asset) {
+  var colour = "#"+asset["colour"];
+  var coords_list = [];
+  var vertices_list = [];
+  for ( const [ vtx,vtx_coord ] of Object.entries(asset["vertices"])) {
+    vertices_list.push(vtx)
+    coords_list.push([vtx_coord["x"],vtx_coord["y"]])
+  }
+  ctx.beginPath();
+  ctx.moveTo(coords_list[0][0],coords_list[0][1]); 
+  for (var i=1; i<coords_list.length; i++) {
+    ctx.lineTo(coords_list[i][0],coords_list[i][1]); 
+  }
+  ctx.fillStyle = colour;
+  ctx.fill();
+  ctx.font = "10px serif";
+
+  ctx.fillStyle = "#000000";
+  for (var i=0; i<vertices_list.length; i++) {
+    ctx.fillText(vertices_list[i], coords_list[i][0],coords_list[i][1]);  
+  }
+  console.log(asset["asset_name"],"printed")
+}
 
 function draw() {
   const canvas = document.getElementById("canvas");
   if (canvas.getContext) {
       const ctx = canvas.getContext("2d");
-      var colour = "#"+earth["colour"];
-      var coords_list = [];
-      var vertices_list = [];
-      for ( const [ vtx,vtx_coord ] of Object.entries(earth["vertices"])) {
-        vertices_list.push(vtx)
-        coords_list.push([vtx_coord["x"],vtx_coord["y"]])
-      }
-      
-      ctx.font = "10px serif";
-      ctx.beginPath();
-      ctx.moveTo(coords_list[0][0],coords_list[0][1]); 
-      for (var i=1; i<coords_list.length; i++) {
-        ctx.lineTo(coords_list[i][0],coords_list[i][1]);
-        
-      }
-      ctx.fillStyle = colour;
-      ctx.fill();
-      // again for Buda
-      var colour = "#"+buda["colour"];
-      var coords_list = [];
-      var vertices_list = [];
-      for ( const [ vtx,vtx_coord ] of Object.entries(buda["vertices"])) {
-        vertices_list.push(vtx)
-        coords_list.push([vtx_coord["x"],vtx_coord["y"]])
-      }
-      
-      ctx.font = "10px serif";
-      ctx.beginPath();
-      ctx.moveTo(coords_list[0][0],coords_list[0][1]); 
-      for (var i=1; i<coords_list.length; i++) {
-        ctx.lineTo(coords_list[i][0],coords_list[i][1]);
-        
-      }
-      ctx.fillStyle = colour;
-      ctx.fill();
-      // again for Duna
-      var colour = "#"+duna["colour"];
-      var coords_list = [];
-      var vertices_list = [];
-      for ( const [ vtx,vtx_coord ] of Object.entries(duna["vertices"])) {
-        vertices_list.push(vtx)
-        coords_list.push([vtx_coord["x"],vtx_coord["y"]])
-      }
-      
-      ctx.font = "10px serif";
-      ctx.beginPath();
-      ctx.moveTo(coords_list[0][0],coords_list[0][1]); 
-      for (var i=1; i<coords_list.length; i++) {
-        ctx.lineTo(coords_list[i][0],coords_list[i][1]);
-        
-      }
-      ctx.fillStyle = colour;
-      ctx.fill();
-      ctx.fillStyle = "#000000";
-      for (var i=0; i<vertices_list.length; i++) {
-        ctx.fillText(vertices_list[i], coords_list[i][0],coords_list[i][1]);  
-      }
-      console.log(earth["asset_name"],"printed")
+      render_asset(ctx,earth)
+      render_asset(ctx,buda)
+      render_asset(ctx,duna)
 
       for (var i=0; i<40; i++) { // 100m grids
         ctx.fillStyle = "rgba(0, 0, 0,0.1)"//"#808080";
